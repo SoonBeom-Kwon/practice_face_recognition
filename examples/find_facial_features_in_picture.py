@@ -2,7 +2,8 @@ from PIL import Image, ImageDraw
 import face_recognition
 
 # Load the jpg file into a numpy array
-image = face_recognition.load_image_file("biden.jpg")
+input_image = input()
+image = face_recognition.load_image_file(input_image)
 
 # Find all facial features in all the faces in the image
 face_landmarks_list = face_recognition.face_landmarks(image)
@@ -33,5 +34,5 @@ for face_landmarks in face_landmarks_list:
 
     for facial_feature in facial_features:
         d.line(face_landmarks[facial_feature], width=5)
-
+    pil_image.save('sample_image.jpg')
     pil_image.show()
